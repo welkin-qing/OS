@@ -177,15 +177,21 @@ int main()
         if(choice==1) alloc(); // 分配内存
         else if(choice==2)  // 内存回收
         {
+	    DuLNode *p=block_first;
             int flag1;
             cout<<"请输入您要释放的分区号：";
             cin>>flag1;
            
-	   /* if(flag1==flag+1||flag1==0)
+	    for(int i=0;i<=flag1;i++)
+		if(p!=NULL)
+		    p=p->next;
+		else
+		    return ERROR;
+	   if(p->data.state==0)
             {
             	printf("无法释放分区，请重新输入\n");
             	continue;
-			}*/
+			}
             free(flag1);
         }
         else if(choice==0) break; //退出
